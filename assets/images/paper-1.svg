@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 170 220" width="170" height="220">
+  <defs><filter id="s1" x="-10%" y="-5%" width="120%" height="115%"><feDropShadow dx="2" dy="3" stdDeviation="5" flood-opacity="0.12"/></filter></defs>
+  <rect x="5" y="5" width="160" height="210" rx="2" ry="2" fill="#fefefe" stroke="#e0dcd8" stroke-width="0.7" filter="url(#s1)"/>
+  <rect x="24" y="24" width="80" height="8" rx="1" fill="#FF6700" opacity="0.18"/>
+  <line x1="24" y1="48" x2="146" y2="48" stroke="#e5e1dd" stroke-width="0.8"/>
+  <line x1="24" y1="62" x2="138" y2="62" stroke="#eae6e2" stroke-width="0.7"/>
+  <line x1="24" y1="76" x2="120" y2="76" stroke="#eae6e2" stroke-width="0.7"/>
+  <line x1="24" y1="90" x2="142" y2="90" stroke="#eae6e2" stroke-width="0.7"/>
+  <line x1="24" y1="104" x2="130" y2="104" stroke="#eae6e2" stroke-width="0.7"/>
+  <line x1="24" y1="124" x2="146" y2="124" stroke="#eae6e2" stroke-width="0.7"/>
+  <line x1="24" y1="138" x2="110" y2="138" stroke="#eae6e2" stroke-width="0.7"/>
+  <line x1="24" y1="152" x2="140" y2="152" stroke="#eae6e2" stroke-width="0.7"/>
+  <line x1="24" y1="166" x2="100" y2="166" stroke="#eae6e2" stroke-width="0.7"/>
+</svg>

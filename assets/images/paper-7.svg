@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 170 220" width="170" height="220">
+  <defs><filter id="s7" x="-10%" y="-5%" width="120%" height="115%"><feDropShadow dx="1" dy="3" stdDeviation="5" flood-opacity="0.11"/></filter></defs>
+  <rect x="5" y="5" width="160" height="210" rx="2" ry="2" fill="#fefefe" stroke="#e1ddd8" stroke-width="0.7" filter="url(#s7)"/>
+  <rect x="24" y="24" width="122" height="10" rx="1" fill="#FF6700" opacity="0.14"/>
+  <rect x="24" y="40" width="90" height="8" rx="1" fill="#FFB38A" opacity="0.12"/>
+  <line x1="24" y1="66" x2="146" y2="66" stroke="#e5e1dd" stroke-width="0.8"/>
+  <line x1="24" y1="80" x2="126" y2="80" stroke="#eae6e2" stroke-width="0.7"/>
+  <line x1="24" y1="94" x2="146" y2="94" stroke="#eae6e2" stroke-width="0.7"/>
+  <line x1="24" y1="108" x2="116" y2="108" stroke="#eae6e2" stroke-width="0.7"/>
+  <line x1="24" y1="122" x2="140" y2="122" stroke="#eae6e2" stroke-width="0.7"/>
+  <line x1="24" y1="136" x2="130" y2="136" stroke="#eae6e2" stroke-width="0.7"/>
+  <rect x="24" y="156" width="122" height="40" rx="2" fill="#FFD7B5" opacity="0.10"/>
+</svg>

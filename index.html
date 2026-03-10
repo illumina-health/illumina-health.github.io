@@ -9,39 +9,36 @@
 <body>
   <div class="page-content">
 
-    <!-- Hero — multi-layer composition -->
+    <!-- Hero -->
     <section class="hero">
       <div class="hero__bg-layer">
         <div class="banner-video">
           <video autoplay muted loop playsinline>
-            <source src="assets/videos/hero-bg.mov" type="video/quicktime" />
+            <source src="assets/videos/hero-bg.mov" type="video/mp4" />
           </video>
         </div>
         <div class="banner-overlay"></div>
       </div>
       <div class="container hero__content">
-        <div class="hero__logo hero-enter hero-enter--d1">
+        <div class="hero__logo">
           <img src="assets/images/logo.svg" alt="Illumina Health Lab Logo" />
         </div>
-        <h1 class="hero-enter hero-enter--d2">Illumina Health Lab</h1>
-        <div class="hero__tagline hero-enter hero-enter--d2">Research at the Intersection of Medicine, Preventive Health, Equity &amp; AI</div>
-        <p class="hero__desc hero-enter hero-enter--d3">A collaborative research initiative founded in 2026 across Harvard Medical School, Rutgers Ernest Mario School of Pharmacy, and Duke University — committed to transforming health through interdisciplinary science and equitable innovation.</p>
-        <div class="hero__buttons hero-enter hero-enter--d4">
+        <h1>Illumina Health Lab</h1>
+        <div class="hero__tagline">Research at the Intersection of Medicine, Preventive Health, Equity &amp; AI</div>
+        <p class="hero__desc">A collaborative research initiative founded in 2026 across Harvard Medical School, Rutgers Ernest Mario School of Pharmacy, and Duke University — committed to transforming health through interdisciplinary science and equitable innovation.</p>
+        <div class="hero__buttons">
           <a href="pages/research-publications.html" class="btn btn--primary">Explore Our Research</a>
           <a href="pages/about.html" class="btn btn--outline">About the Lab</a>
         </div>
       </div>
     </section>
 
-    <!-- Institutional affiliations -->
-    <section class="section reveal">
+    <!-- Statement band -->
+    <section class="section section-statement" data-theme="light">
       <div class="container">
-        <div class="section__header">
-          <h2>A Vision for the Future of Health</h2>
-          <p>Illumina Health Lab was founded with a clear conviction: that the most urgent challenges in human health demand collaborative, cross-institutional thinking. Our work bridges translational medicine, preventive and population health, equitable healthcare systems, and AI-enabled discovery — guided by a founding team that believes rigorous science and principled innovation can reshape how the world approaches health.</p>
-          <span class="accent-line"></span>
-        </div>
-        <div class="institution-list">
+        <h2 class="statement-title reveal">A Vision for the Future of Health</h2>
+        <p class="statement-body reveal">Illumina Health Lab was founded with a clear conviction: that the most urgent challenges in human health demand collaborative, cross-institutional thinking. Our work bridges translational medicine, preventive and population health, equitable healthcare systems, and AI-enabled discovery.</p>
+        <div class="institution-list reveal" style="margin-top:28px">
           <span class="institution-list__item">Harvard Medical School</span>
           <span class="institution-list__item">Rutgers Ernest Mario School of Pharmacy</span>
           <span class="institution-list__item">Duke University</span>
@@ -49,60 +46,98 @@
       </div>
     </section>
 
-    <!-- Research pillars -->
-    <section class="section section--alt reveal">
+    <!-- Research pillars — editorial numbered list -->
+    <section class="section section--alt" data-theme="light">
       <div class="container">
-        <div class="section__header">
+        <div class="section__header reveal">
           <h2>Research Focus Areas</h2>
-          <p>Our work spans four interconnected pillars that together define the lab's scientific identity.</p>
           <span class="accent-line"></span>
         </div>
-        <div class="card-grid card-grid--4 reveal-stagger">
-          <div class="card card--accent reveal">
-            <h3>Medicine</h3>
-            <p>Advancing translational research that connects molecular discovery to clinical impact, with emphasis on diagnostics, therapeutics, and precision approaches.</p>
+        <div class="editorial-list">
+          <div class="editorial-item">
+            <span class="editorial-number">01</span>
+            <div>
+              <h3>Medicine</h3>
+              <p>Advancing translational research that connects molecular discovery to clinical impact, with emphasis on diagnostics, therapeutics, and precision approaches to patient care.</p>
+            </div>
           </div>
-          <div class="card card--accent reveal">
-            <h3>Preventive Health</h3>
-            <p>Developing proactive strategies for disease prevention and population health, informed by data-driven surveillance, behavioral science, and public health frameworks.</p>
+          <div class="editorial-item">
+            <span class="editorial-number">02</span>
+            <div>
+              <h3>Preventive Health</h3>
+              <p>Developing proactive strategies for disease prevention and population health, informed by data-driven surveillance, behavioral science, and community-based public health frameworks.</p>
+            </div>
           </div>
-          <div class="card card--accent reveal">
-            <h3>Health Equity</h3>
-            <p>Centering justice in every aspect of our research — from study design to data representation — ensuring that innovation serves all communities equitably.</p>
+          <div class="editorial-item">
+            <span class="editorial-number">03</span>
+            <div>
+              <h3>Health Equity</h3>
+              <p>Centering justice in every aspect of our research — from study design to data representation — ensuring that innovation serves all communities equitably and without exception.</p>
+            </div>
           </div>
-          <div class="card card--accent reveal">
-            <h3>Artificial Intelligence</h3>
-            <p>Harnessing machine learning, deep learning, and computational modeling to accelerate discovery, optimize clinical workflows, and unlock insights from complex health data.</p>
+          <div class="editorial-item">
+            <span class="editorial-number">04</span>
+            <div>
+              <h3>Artificial Intelligence</h3>
+              <p>Harnessing machine learning, deep learning, and computational modeling to accelerate discovery, optimize clinical workflows, and unlock insights from complex health data at scale.</p>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Highlights -->
-    <section class="section reveal">
+    <!-- Spotlight — immersive dark transition -->
+    <section class="section section-spotlight" data-theme="dark">
       <div class="container">
-        <div class="section__header">
+        <h2 class="reveal">AI-Driven Health Equity</h2>
+        <p class="reveal">Our flagship initiative explores how artificial intelligence can be designed, evaluated, and deployed in ways that actively reduce — rather than perpetuate — health disparities across underserved populations. This is not an afterthought. It is the foundation of how we build.</p>
+        <div style="margin-top:36px" class="reveal">
+          <a href="pages/research-publications.html" class="btn btn--outline" style="border-color:rgba(255,255,255,0.4);color:var(--white)">View Research &amp; Publications</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Highlights — editorial list in dark section -->
+    <section class="section" data-theme="dark">
+      <div class="container">
+        <div class="section__header reveal">
           <h2>Recent Highlights</h2>
-          <p>Selected updates from across the lab.</p>
           <span class="accent-line"></span>
         </div>
-        <div class="card-grid card-grid--2 reveal-stagger">
-          <div class="card reveal">
-            <span class="tag">Founded 2026</span>
-            <h3 style="margin-top:12px">Cross-Institutional Launch</h3>
-            <p>Illumina Health Lab officially launched as a collaborative initiative bringing together students and researchers from Harvard Medical School, Rutgers Ernest Mario School of Pharmacy, and Duke University.</p>
+        <div class="editorial-list">
+          <div class="editorial-item">
+            <span class="editorial-number">—</span>
+            <div>
+              <h3>Cross-Institutional Launch, 2026</h3>
+              <p>Illumina Health Lab officially launched as a collaborative initiative bringing together students and researchers from Harvard Medical School, Rutgers Ernest Mario School of Pharmacy, and Duke University.</p>
+            </div>
           </div>
-          <div class="card reveal">
-            <span class="tag">Research Initiative</span>
-            <h3 style="margin-top:12px">AI-Driven Health Equity Framework</h3>
-            <p>The lab has initiated a flagship project exploring how artificial intelligence can be designed and deployed in ways that actively reduce — rather than perpetuate — health disparities across underserved populations.</p>
+          <div class="editorial-item">
+            <span class="editorial-number">—</span>
+            <div>
+              <h3>AI-Driven Health Equity Framework</h3>
+              <p>The lab has initiated a flagship project examining algorithmic bias in clinical prediction models and proposing equity-aware evaluation protocols for health AI systems.</p>
+            </div>
+          </div>
+          <div class="editorial-item">
+            <span class="editorial-number">—</span>
+            <div>
+              <h3>Preventive Health Intelligence Platform</h3>
+              <p>Development has begun on a computational framework for integrating real-time public health surveillance data with population-level risk models.</p>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
   </div>
-  <script src="assets/js/webgl-cubes.js"></script>
+
+  <!-- Libraries -->
+  <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+  <!-- App -->
+  <script src="assets/js/scene.js"></script>
   <script src="assets/js/main.js"></script>
 </body>
 </html>

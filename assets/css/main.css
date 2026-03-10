@@ -63,39 +63,58 @@ ul { list-style: none; }
 }
 
 /* ============================================================
-   Entry Animations
+   Visibility system — content visible by default.
+   .js-enabled is added by JS on boot; only then do we hide
+   elements for animated reveal. If JS fails, everything shows.
    ============================================================ */
-.reveal {
+/* Default: fade-up */
+.js-enabled .reveal-init {
   opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.7s cubic-bezier(0.22,1,0.36,1), transform 0.7s cubic-bezier(0.22,1,0.36,1);
+  transform: translateY(24px);
 }
-
-.revealed {
+/* Slide from left */
+.js-enabled .reveal-init--left {
+  opacity: 0;
+  transform: translateX(-40px);
+}
+/* Slide from right */
+.js-enabled .reveal-init--right {
+  opacity: 0;
+  transform: translateX(40px);
+}
+/* Scale up */
+.js-enabled .reveal-init--scale {
+  opacity: 0;
+  transform: scale(0.92);
+}
+/* Clip reveal (wipe from bottom) */
+.js-enabled .reveal-init--clip {
   opacity: 1;
-  transform: translateY(0);
+  clip-path: inset(100% 0 0 0);
 }
 
-.reveal-stagger > .reveal:nth-child(1) { transition-delay: 0s; }
-.reveal-stagger > .reveal:nth-child(2) { transition-delay: 0.1s; }
-.reveal-stagger > .reveal:nth-child(3) { transition-delay: 0.2s; }
-.reveal-stagger > .reveal:nth-child(4) { transition-delay: 0.3s; }
-.reveal-stagger > .reveal:nth-child(5) { transition-delay: 0.4s; }
-.reveal-stagger > .reveal:nth-child(6) { transition-delay: 0.5s; }
+/* ============================================================
+   Z-index layer map (centralized)
+   0  = Three.js canvas
+   1  = page-content
+   2  = banner video
+   3  = banner overlay
+   4  = banner/hero content
+   1000 = navbar
+   ============================================================ */
 
-@keyframes hero-fade-up {
-  from { opacity: 0; transform: translateY(36px); }
-  to   { opacity: 1; transform: translateY(0); }
+/* ============================================================
+   Three.js canvas — fixed behind all page content
+   ============================================================ */
+#scene-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;
+  pointer-events: none;
 }
-
-.hero-enter {
-  animation: hero-fade-up 0.9s cubic-bezier(0.22,1,0.36,1) both;
-}
-
-.hero-enter--d1 { animation-delay: 0.15s; }
-.hero-enter--d2 { animation-delay: 0.35s; }
-.hero-enter--d3 { animation-delay: 0.55s; }
-.hero-enter--d4 { animation-delay: 0.75s; }
 
 /* ============================================================
    Navbar
@@ -189,9 +208,11 @@ ul { list-style: none; }
 }
 
 /* ============================================================
-   Page wrapper
+   Page wrapper — sits above the Three.js canvas
    ============================================================ */
 .page-content {
+  position: relative;
+  z-index: 1;
   padding-top: var(--nav-height);
 }
 
@@ -235,7 +256,8 @@ ul { list-style: none; }
   height: auto;
   transform: translate(-50%, -50%);
   object-fit: cover;
-  opacity: 0.25;
+  opacity: 0.35;
+  mix-blend-mode: overlay;
 }
 
 /* Gradient overlay above video for readability */
@@ -245,21 +267,13 @@ ul { list-style: none; }
   z-index: 1;
   background: linear-gradient(
     135deg,
-    rgba(255,183,138,0.6) 0%,
-    rgba(255,146,72,0.65) 40%,
-    rgba(255,103,0,0.7) 100%
+    rgba(255,183,138,0.4) 0%,
+    rgba(255,146,72,0.45) 40%,
+    rgba(255,103,0,0.5) 100%
   );
   pointer-events: none;
 }
 
-/* WebGL full-viewport overlay — created by JS, floats in front of content */
-#webgl-cube-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 999;
-  pointer-events: none;
-}
 
 /* Parallax wrapper for background layers */
 .hero__bg-layer {
@@ -737,7 +751,7 @@ ul { list-style: none; }
 }
 
 /* ============================================================
-   Tag / badge — pill shape retained for tags only
+   Tag / badge
    ============================================================ */
 .tag {
   display: inline-block;
@@ -748,6 +762,199 @@ ul { list-style: none; }
   font-size: 0.76rem;
   font-weight: 600;
   margin: 3px 2px;
+}
+
+/* ============================================================
+   Editorial layouts — statement bands, numbered lists, spotlights
+   ============================================================ */
+.section-statement {
+  padding: 100px 0;
+  text-align: center;
+}
+
+.statement-title {
+  font-size: 2.4rem;
+  font-weight: 900;
+  line-height: 1.22;
+  max-width: 800px;
+  margin: 0 auto 24px;
+}
+
+.statement-body {
+  font-size: 1.08rem;
+  color: var(--text-secondary);
+  max-width: 640px;
+  margin: 0 auto;
+  line-height: 1.8;
+}
+
+/* Editorial numbered list */
+.editorial-list {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.editorial-item {
+  display: flex;
+  gap: 28px;
+  align-items: flex-start;
+  padding: 36px 0;
+  border-bottom: 1px solid var(--border-light);
+}
+
+.editorial-item:last-child { border-bottom: none; }
+
+.editorial-number {
+  font-family: var(--font-heading);
+  font-size: 2.8rem;
+  font-weight: 900;
+  color: var(--vivid-orange);
+  opacity: 0.25;
+  line-height: 1;
+  flex-shrink: 0;
+  width: 56px;
+}
+
+.editorial-item h3 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.editorial-item p {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+/* Spotlight / immersive section */
+.section-spotlight {
+  padding: 120px 0;
+  text-align: center;
+}
+
+.section-spotlight h2 {
+  font-size: 2.6rem;
+  font-weight: 900;
+  margin-bottom: 20px;
+  line-height: 1.15;
+}
+
+.section-spotlight p {
+  font-size: 1.1rem;
+  max-width: 580px;
+  margin: 0 auto;
+  line-height: 1.8;
+}
+
+/* Split section */
+.split-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.split-section__heading {
+  font-size: 2rem;
+  font-weight: 900;
+  line-height: 1.2;
+}
+
+.split-section__body {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  line-height: 1.8;
+}
+
+/* ============================================================
+   Paper fly-in section (Research & Publications page)
+   ============================================================ */
+.section-papers {
+  padding: 80px 0;
+  overflow: hidden;
+}
+
+.papers-container {
+  position: relative;
+  min-height: 420px;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  width: 90%;
+}
+
+.papers-wrap {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.paper-sheet {
+  position: absolute;
+  width: 180px;
+  height: auto;
+  opacity: 1;
+  will-change: transform;
+  filter: drop-shadow(2px 4px 8px rgba(0,0,0,0.10));
+}
+
+@media (max-width: 768px) {
+  .paper-sheet { width: 110px; }
+  .papers-container { min-height: 360px; }
+}
+
+/* ============================================================
+   Dark theme sections — white-to-black transition
+   ============================================================ */
+[data-theme="dark"] {
+  background: #0a0a0a;
+  color: rgba(255,255,255,0.9);
+}
+
+[data-theme="dark"] h2,
+[data-theme="dark"] h3,
+[data-theme="dark"] h4 {
+  color: var(--white);
+}
+
+[data-theme="dark"] p {
+  color: rgba(255,255,255,0.65);
+}
+
+[data-theme="dark"] .accent-line {
+  background: var(--vivid-orange);
+}
+
+[data-theme="dark"] .editorial-item {
+  border-bottom-color: rgba(255,255,255,0.08);
+}
+
+[data-theme="dark"] .editorial-number {
+  color: var(--vivid-orange);
+  opacity: 0.4;
+}
+
+[data-theme="dark"] .card {
+  background: rgba(255,255,255,0.04);
+  border-color: rgba(255,255,255,0.08);
+}
+
+[data-theme="dark"] .card h3 { color: var(--white); }
+[data-theme="dark"] .card p { color: rgba(255,255,255,0.6); }
+
+[data-theme="dark"] .pub-item {
+  background: rgba(255,255,255,0.03);
+  border-color: rgba(255,255,255,0.08);
+  border-left-color: var(--vivid-orange);
+}
+
+[data-theme="dark"] .pub-item__title { color: var(--white); }
+[data-theme="dark"] .pub-item__authors { color: rgba(255,255,255,0.55); }
+[data-theme="dark"] .pub-item__venue { color: rgba(255,255,255,0.4); }
+
+[data-theme="dark"] .institution-list__item {
+  color: rgba(255,255,255,0.6);
 }
 
 /* ============================================================
@@ -802,6 +1009,27 @@ ul { list-style: none; }
   .hero p  { font-size: 0.96rem; }
   .hero__tagline { font-size: 0.82rem; letter-spacing: 0.12em; }
   .section { padding: 60px 0; }
+  .section-spotlight { padding: 80px 0; }
+  .section-spotlight h2 { font-size: 1.8rem; }
+  .statement-title { font-size: 1.7rem; }
   .page-banner { padding: 50px 0 42px; }
   .page-banner h1 { font-size: 1.7rem; }
+  .editorial-item { flex-direction: column; gap: 12px; }
+  .editorial-number { font-size: 2rem; }
+  .split-section { grid-template-columns: 1fr; gap: 28px; }
+}
+
+/* ============================================================
+   Reduced motion
+   ============================================================ */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+  #scene-canvas { display: none; }
+  .js-enabled .reveal-init {
+    opacity: 1 !important;
+    transform: none !important;
+  }
 }
