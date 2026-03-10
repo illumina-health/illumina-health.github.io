@@ -6,8 +6,8 @@
 (function () {
   'use strict';
 
-  var depth = document.documentElement.dataset.depth || '0';
-  var base  = depth === '0' ? '.' : '..';
+  /* Root-relative paths work on username.github.io (served from /) */
+  var ROOT = '/';
 
   /* ----------------------------------------------------------
      Navbar
@@ -18,16 +18,16 @@
     nav.setAttribute('aria-label', 'Main navigation');
     nav.innerHTML =
       '<div class="container">' +
-        '<a href="' + base + '/index.html" class="navbar__brand">' +
-          '<img src="' + base + '/assets/images/logo.svg" alt="Illumina Health Lab"' +
+        '<a href="' + ROOT + 'index.html" class="navbar__brand">' +
+          '<img src="' + ROOT + 'assets/images/logo.svg" alt="Illumina Health Lab"' +
           ' onerror="this.style.display=\'none\'" />' +
           '<span>Illumina Health Lab</span>' +
         '</a>' +
         '<div class="navbar__links" id="navLinks">' +
-          '<a href="' + base + '/index.html" data-page="home">Home</a>' +
-          '<a href="' + base + '/pages/people.html" data-page="people">People</a>' +
-          '<a href="' + base + '/pages/about.html" data-page="about">About</a>' +
-          '<a href="' + base + '/pages/research-publications.html" data-page="research">Research &amp; Publications</a>' +
+          '<a href="' + ROOT + 'index.html" data-page="home">Home</a>' +
+          '<a href="' + ROOT + 'pages/people.html" data-page="people">People</a>' +
+          '<a href="' + ROOT + 'pages/about.html" data-page="about">About</a>' +
+          '<a href="' + ROOT + 'pages/research-publications.html" data-page="research">Research &amp; Publications</a>' +
         '</div>' +
         '<button class="navbar__toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">' +
           '<span></span><span></span><span></span>' +
@@ -70,10 +70,10 @@
         '</div>' +
         '<div class="footer__links">' +
           '<h4>Navigate</h4>' +
-          '<a href="' + base + '/index.html">Home</a>' +
-          '<a href="' + base + '/pages/people.html">People</a>' +
-          '<a href="' + base + '/pages/about.html">About</a>' +
-          '<a href="' + base + '/pages/research-publications.html">Research &amp; Publications</a>' +
+          '<a href="' + ROOT + 'index.html">Home</a>' +
+          '<a href="' + ROOT + 'pages/people.html">People</a>' +
+          '<a href="' + ROOT + 'pages/about.html">About</a>' +
+          '<a href="' + ROOT + 'pages/research-publications.html">Research &amp; Publications</a>' +
         '</div>' +
         '<div class="footer__links">' +
           '<h4>Connect</h4>' +
